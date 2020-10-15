@@ -17,7 +17,7 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test",
-    "lint": "tsdx lint",
+    "lint": "tsdx lint src --fix",
     "prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why"
@@ -60,7 +60,7 @@
     "semi": false,
     "singleQuote": true,
     "trailingComma": "none",
-    "endOfLine": "crlf",
+    "endOfLine": "lf",
     "tabWidth": 2,
     "useTabs": false
   },

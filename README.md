@@ -1,8 +1,18 @@
-<h1 align="center">N ary tree</h1>
+# N ary tree
+
+![Tests](https://github.com/lbwa/n-ary/workflows/Tests/badge.svg)
 
 [n-ary tree](https://en.wikipedia.org/wiki/M-ary_tree)(also known as `k-ary` or `k-way` tree) implementation in `JavaScript(TypeScript)`.
 
 ## Installation
+
+- Using npm
+
+```bash
+$ npm i n-ary-tree
+```
+
+- Using yarn
 
 ```bash
 $ yarn add n-ary-tree
