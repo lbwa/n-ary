@@ -35,7 +35,7 @@
     "useTabs": false
   },
   "name": "n-ary",
-  "author": "lbwa",
+  "author": "Liu Bowen <asyncmode@outlook.com>",
   "module": "dist/n-ary.esm.js",
   "size-limit": [
     {
