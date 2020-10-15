@@ -1,13 +1,13 @@
 {
-  "name": "n-ary",
-  "version": "0.1.0",
+  "name": "n-ary-tree",
+  "version": "0.0.0",
   "license": "MIT",
   "files": [
     "dist",
     "src"
   ],
   "author": "Liu Bowen <asyncmode@outlook.com>",
-  "module": "dist/n-ary.esm.js",
+  "module": "dist/n-ary-tree.esm.js",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "engines": {
@@ -37,16 +37,9 @@
     "url": "https://github.com/lbwa/n-ary/issues"
   },
   "homepage": "https://github.com/lbwa/n-ary#readme",
-  "size-limit": [
-    {
-      "path": "dist/n-ary.cjs.production.min.js",
-      "limit": "10 KB"
-    },
-    {
-      "path": "dist/n-ary.esm.js",
-      "limit": "10 KB"
-    }
-  ],
+  "publicConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^4.6.0",
     "husky": "^4.3.0",
@@ -70,5 +63,15 @@
     "endOfLine": "crlf",
     "tabWidth": 2,
     "useTabs": false
-  }
+  },
+  "size-limit": [
+    {
+      "path": "dist/n-ary.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/n-ary.esm.js",
+      "limit": "10 KB"
+    }
+  ]
 }

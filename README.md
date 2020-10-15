@@ -1,11 +1,11 @@
-<h1 align="center">N ary</h1>
+<h1 align="center">N ary tree</h1>
 
 [n-ary tree](https://en.wikipedia.org/wiki/M-ary_tree)(also known as `k-ary` or `k-way` tree) implementation in `JavaScript(TypeScript)`.
 
 ## Installation
 
 ```bash
-$ yarn add n-ary
+$ yarn add n-ary-tree
 ```
 
 ## APIs
@@ -21,7 +21,7 @@ export function findNodes<N extends Record<string, any>, V = any>(
 ```
 
 ```ts
-import { findNodes } from 'n-ary'
+import { findNodes } from 'n-ary-tree'
 
 interface DefaultTreeNode {
   value: number
