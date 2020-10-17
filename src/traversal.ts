@@ -1,5 +1,5 @@
 import { TreeNode, TreeNodeFields } from './types'
-import { isDef } from './utils'
+import { isDef } from 'tslang-utils'
 
 export function levelOrder<N extends TreeNode<V>, V = any>(
   root?: N,
