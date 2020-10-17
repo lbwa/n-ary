@@ -5,11 +5,6 @@ interface DefaultTreeNode {
   children?: DefaultTreeNode[]
 }
 
-interface TreeNode {
-  label: string
-  descendants?: TreeNode[]
-}
-
 describe('N-ary tree', () => {
   it('should find nodes with default fields', () => {
     const tree: DefaultTreeNode = {
@@ -41,7 +36,7 @@ describe('N-ary tree', () => {
   })
 
   it('should find nodes with specific fields', () => {
-    const tree: TreeNode = {
+    const tree = {
       label: 'label1',
       descendants: [
         {
