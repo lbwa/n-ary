@@ -8488,6 +8488,11 @@ tsdx@^0.14.1:
     tslib "^1.9.3"
     typescript "^3.7.3"
 
+tslang-utils@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.npm.taobao.org/tslang-utils/download/tslang-utils-0.1.0.tgz#a0365f23d208cbb649fff01d15a8e309e1c5e442"
+  integrity sha1-oDZfI9IIy7ZJ//AdFajjCeHF5EI=
+
 tslib@2.0.1:
   version "2.0.1"
   resolved "https://registry.npm.taobao.org/tslib/download/tslib-2.0.1.tgz?cache=0&sync_timestamp=1602286854330&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ftslib%2Fdownload%2Ftslib-2.0.1.tgz#410eb0d113e5b6356490eec749603725b021b43e"
