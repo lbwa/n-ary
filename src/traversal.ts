@@ -1,7 +1,7 @@
 import { TreeNode, TreeNodeFields } from './types'
 import { isDef } from 'tslang-utils'
 
-export function levelOrder<N extends TreeNode<V>, V = any>(
+export function levelorder<N extends TreeNode<V>, V = any>(
   root?: N,
   { value = 'value', children = 'children' }: TreeNodeFields<N> = {}
 ) {
@@ -27,7 +27,9 @@ export function levelOrder<N extends TreeNode<V>, V = any>(
   return ans
 }
 
-export function preOrder<N extends TreeNode<V>, V = any>(
+export const bfs = levelorder
+
+export function preorder<N extends TreeNode<V>, V = any>(
   root?: N,
   { value = 'value', children = 'children' }: TreeNodeFields<N> = {}
 ) {
@@ -49,7 +51,7 @@ export function preOrder<N extends TreeNode<V>, V = any>(
   return ans
 }
 
-export function postOrder<N extends TreeNode<V>, V = any>(
+export function postorder<N extends TreeNode<V>, V = any>(
   root?: N,
   { value = 'value', children = 'children' }: TreeNodeFields<N> = {}
 ) {

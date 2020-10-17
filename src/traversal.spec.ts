@@ -1,4 +1,4 @@
-import { preOrder, postOrder, levelOrder } from './traversal'
+import { preorder, postorder, levelorder } from './traversal'
 
 describe('N ary tree traversal', () => {
   const defaultTree = {
@@ -17,38 +17,38 @@ describe('N ary tree traversal', () => {
       { val: 4 }
     ]
   }
-  it('preOrder with default fields', () => {
-    expect(preOrder()).toEqual([])
-    expect(preOrder(defaultTree)).toEqual([1, 3, 5, 6, 2, 4])
+  it('preorder with default fields', () => {
+    expect(preorder()).toEqual([])
+    expect(preorder(defaultTree)).toEqual([1, 3, 5, 6, 2, 4])
   })
 
-  it('preOrder with customize fields', () => {
-    expect(preOrder()).toEqual([])
+  it('preorder with customize fields', () => {
+    expect(preorder()).toEqual([])
     expect(
-      preOrder(customFieldsTree, { value: 'val', children: 'descendants' })
+      preorder(customFieldsTree, { value: 'val', children: 'descendants' })
     ).toEqual([1, 3, 5, 6, 2, 4])
   })
 
-  it('postOrder with default fields', () => {
-    expect(postOrder()).toEqual([])
-    expect(postOrder(defaultTree)).toEqual([5, 6, 3, 2, 4, 1])
+  it('postorder with default fields', () => {
+    expect(postorder()).toEqual([])
+    expect(postorder(defaultTree)).toEqual([5, 6, 3, 2, 4, 1])
   })
 
-  it('postOrder with customize fields', () => {
-    expect(postOrder()).toEqual([])
+  it('postorder with customize fields', () => {
+    expect(postorder()).toEqual([])
     expect(
-      postOrder(customFieldsTree, { value: 'val', children: 'descendants' })
+      postorder(customFieldsTree, { value: 'val', children: 'descendants' })
     ).toEqual([5, 6, 3, 2, 4, 1])
   })
 
-  it('levelOrder with default fields', () => {
-    expect(levelOrder()).toEqual([])
-    expect(levelOrder(defaultTree)).toEqual([[1], [3, 2, 4], [5, 6]])
+  it('levelorder with default fields', () => {
+    expect(levelorder()).toEqual([])
+    expect(levelorder(defaultTree)).toEqual([[1], [3, 2, 4], [5, 6]])
   })
 
-  it('levelOrder with customize fields', () => {
+  it('levelorder with customize fields', () => {
     expect(
-      levelOrder(customFieldsTree, {
+      levelorder(customFieldsTree, {
         value: 'val',
         children: 'descendants'
       })
