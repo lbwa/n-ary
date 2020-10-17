@@ -21,7 +21,7 @@
     "prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why",
-    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,md}\""
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\""
   },
   "repository": {
     "type": "git",
@@ -70,7 +70,7 @@
     "semi": false,
     "singleQuote": true,
     "trailingComma": "none",
-    "endOfLine": "lf",
+    "endOfLine": "crlf",
     "tabWidth": 2,
     "useTabs": false
   },
