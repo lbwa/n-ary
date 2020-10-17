@@ -8,12 +8,15 @@
 
 - [N ary tree](#n-ary-tree)
   - [Installation](#installation)
+  - [Tree node structures](#tree-node-structures)
+    - [Default structure fields](#default-structure-fields)
+    - [Examples](#examples)
   - [APIs](#apis)
     - [findNodes](#findnodes)
     - [Traversal](#traversal)
-      - [preOrder](#preorder)
-      - [postOrder](#postorder)
-      - [levelOrder](#levelorder)
+      - [levelorder](#levelorder)
+      - [preorder](#preorder)
+      - [postorder](#postorder)
   - [License](#license)
 
 <!-- /TOC -->
@@ -31,6 +34,39 @@ $ npm i n-ary-tree
 ```bash
 $ yarn add n-ary-tree
 ```
+
+## Tree node structures
+
+User-defined tree node fields have supported by all available methods. Just keep the last parameter is a structure like:
+
+```ts
+type TreeNodeFields<N> = Partial<{
+  value: keyof N
+  children: keyof N
+}>
+```
+
+### Default structure fields
+
+```ts
+{
+  value: 'value',
+  children: 'children'
+}
+```
+
+By default, we will use `value` field as the value of tree node, `children` field as the children of tree node.
+
+### Examples
+
+```ts
+{
+  value: 'val', // or other field string in the tree node
+  children: 'descendants' // or other field string in the tree node
+}
+```
+
+`val` field will be regarded as node actual value, `descendants` field in the tree node will be regraded as node children field.
 
 ## APIs
 
@@ -79,17 +115,59 @@ findNodes(tree, [111])
 //      nodes: [{ value: 111 }],
 //      values: [111]
 //    }
+findNodes(tree, [111], { value: 'value', children: 'children' })
+// Equivalent to findNodes(tree, [111]), { value: 'value', children: 'children' }
+// is default preset.
 ```
 
 ### Traversal
 
-We have support 3 kinds of common tree traversal method: pre-order, post-order, level-order.
+We have support 3 kinds of common tree traversal methods: [level-order(BFS)](https://en.wikipedia.org/wiki/Tree_traversal#Breadth-first_search_/_level_order), [pre-order(DFS)](<https://en.wikipedia.org/wiki/Tree_traversal#Pre-order_(NLR)>), [post-order(DFS)](<https://en.wikipedia.org/wiki/Tree_traversal#Post-order_(LRN)>).
 
-#### preOrder
+#### levelorder
 
-#### postOrder
+```ts
+const tree = {
+  val: 1,
+  children: [
+    {
+      val: 2
+    }
+  ]
+}
+levelorder(tree, { value: 'val' })
+// [[1], [2]]
+```
 
-#### levelOrder
+#### preorder
+
+```ts
+const tree = {
+  value: 1,
+  descendants: [
+    {
+      value: 2
+    }
+  ]
+}
+preorder(tree, { children: 'descendants' })
+// [1, 2]
+```
+
+#### postorder
+
+```ts
+const tree = {
+  val: 1,
+  descendants: [
+    {
+      val: 2
+    }
+  ]
+}
+postorder(tree, { value: 'val', children: 'descendants' })
+// [2, 1]
+```
 
 ## License
 
