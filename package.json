@@ -1,6 +1,7 @@
 {
   "name": "n-ary-tree",
   "version": "0.2.0",
+  "description": "n-ary tree implementation in JavaScript(TypeScript).",
   "license": "MIT",
   "files": [
     "dist",
@@ -32,7 +33,10 @@
     "k-ary",
     "m-ary",
     "data-structures",
-    "tree"
+    "tree",
+    "preorder",
+    "postorder",
+    "levelorder"
   ],
   "bugs": {
     "url": "https://github.com/lbwa/n-ary/issues"
