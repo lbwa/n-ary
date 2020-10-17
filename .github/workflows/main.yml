@@ -1,4 +1,4 @@
-name: Tests
+name: Pipeline
 on: [push]
 jobs:
   build:
@@ -21,6 +21,8 @@ jobs:
 
       - name: Install deps and build (with cache)
         uses: bahmutov/npm-install@v1
+        with:
+          useLockFile: false
 
       - name: Lint
         run: yarn lint
