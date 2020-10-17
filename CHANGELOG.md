@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+### [0.2.1](https://github.com/lbwa/n-ary/compare/v0.2.0...v0.2.1) (2020-10-17)
+
+
+### Bug Fixes
+
+* format npm description ([2c02422](https://github.com/lbwa/n-ary/commit/2c0242267fca5839b9c01b7a9b2ae2009993da77))
+
 ## [0.2.0](https://github.com/lbwa/n-ary/compare/v0.1.0...v0.2.0) (2020-10-17)
 
 
