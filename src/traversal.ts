@@ -20,7 +20,7 @@ export function levelOrder<N extends TreeNode<V>, V = any>(
 
       const nextLevel = current[children]
       if (Array.isArray(nextLevel)) {
-        queue.push(...nextLevel)
+        queue.push(...(nextLevel as N[]))
       }
     }
   }
