@@ -28,21 +28,14 @@ export function findNodes<N extends TreeNode<V>, V = any>(
       return
     }
 
-    let i = targets.length
-    while (i--) {
-      if (targets[i] === root[value]) {
-        values[i] = root[value]
-        nodes[i] = root
-      }
+    const index = targets.indexOf(root[value])
+    if (index > -1) {
+      values[index] = root[value]
+      nodes[index] = root
     }
 
-    // avoid unnecessary comparison, return answer as soon as possible
-    if (values.length === targets.length) {
-      return
-    }
-
-    if (Array.isArray(root[children]) && (root[children] as any).length > 0) {
-      ;(root[children] as any).forEach(dfs)
+    if (Array.isArray(root[children]) && root[children].length > 0) {
+      root[children].forEach(dfs)
     }
   }
   dfs(root)

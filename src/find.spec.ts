@@ -11,28 +11,68 @@ describe('N-ary tree', () => {
       value: 1,
       children: [
         {
-          value: 11,
+          value: 1,
           children: [
             {
-              value: 111
+              value: 11
+            },
+            {
+              value: 12,
+              children: [
+                {
+                  value: 121
+                },
+                {
+                  value: 122
+                }
+              ]
+            },
+            {
+              value: 13
+            },
+            {
+              value: 14,
+              children: [
+                {
+                  value: 141
+                },
+                {
+                  value: 142
+                }
+              ]
             }
           ]
         },
         {
-          value: 12,
-          children: [
-            {
-              value: 121
-            }
-          ]
+          value: 2
         }
       ]
     }
-    expect(findNodes(tree, [111])).toEqual({
-      nodes: [{ value: 111 }],
-      values: [111]
+    expect(findNodes(undefined as any, [11])).toEqual({ nodes: [], values: [] })
+    expect(findNodes(tree, [11])).toEqual({
+      nodes: [{ value: 11 }],
+      values: [11]
+    })
+    expect(findNodes(tree, [142])).toEqual({
+      nodes: [{ value: 142 }],
+      values: [142]
     })
     expect(findNodes(tree, [123])).toEqual({ nodes: [], values: [] })
+    expect(
+      findNodes(
+        {
+          value: 1,
+          children: new Array(99).fill(undefined).concat({
+            value: 12,
+            children: new Array(999)
+              .fill(undefined)
+              .concat({ value: 19 })
+              .concat(new Array(99).fill(null))
+          })
+        },
+        [19]
+      )
+    ).toEqual({ nodes: [{ value: 19 }], values: [19] })
   })
 
   it('should find nodes with specific fields', () => {
