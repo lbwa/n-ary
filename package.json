@@ -22,7 +22,9 @@
     "prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\""
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "preperf": "tsdx build",
+    "perf": "node ./perf/index.js"
   },
   "repository": {
     "type": "git",
@@ -47,6 +49,7 @@
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^4.6.0",
+    "benchmark": "^2.1.4",
     "husky": "^4.3.0",
     "lint-staged": "^10.4.2",
     "size-limit": "^4.6.0",
