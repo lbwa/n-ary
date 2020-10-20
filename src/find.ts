@@ -68,7 +68,9 @@ export function findPathNodes<N extends TreeNode<V>, V = any>(
 
       if (current[value] === targets[levelIndex]) {
         nodes.push(current)
-        queue.push(...((current[children] as any) || []))
+        if (levelIndex < targets.length - 1) {
+          queue.push(...((current[children] as any) || []))
+        }
         break
       }
     }
