@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.0](https://github.com/lbwa/n-ary/compare/v0.2.2...v0.3.0) (2020-10-20)
+
+
+### Features
+
+* **findPathNodes:** exit children bfs when no more target value ([dd8533d](https://github.com/lbwa/n-ary/commit/dd8533dbf1254e1f4090a9a807b181323eaf01e4))
+* **findPathNodes:** impl findPathNodes ([b2a7e70](https://github.com/lbwa/n-ary/commit/b2a7e70492794ec1ee9e02a413729f9208209aa2))
+
 ### [0.2.2](https://github.com/lbwa/n-ary/compare/v0.2.1...v0.2.2) (2020-10-19)
 
 
