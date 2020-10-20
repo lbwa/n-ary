@@ -13,6 +13,7 @@
     - [Examples](#examples)
   - [APIs](#apis)
     - [findNodes](#findnodes)
+    - [findPathNodes](#findpathnodes)
     - [Traversal](#traversal)
       - [levelorder](#levelorder)
       - [preorder](#preorder)
@@ -72,6 +73,8 @@ By default, we will use `value` field as the value of tree node, `children` fiel
 
 ### findNodes
 
+Get all matched nodes.
+
 ```ts
 export function findNodes<N extends Record<string, any>, V = any>(
   root: N,
@@ -118,6 +121,30 @@ findNodes(tree, [111])
 findNodes(tree, [111], { value: 'value', children: 'children' })
 // Equivalent to findNodes(tree, [111]), { value: 'value', children: 'children' }
 // is default preset.
+```
+
+### findPathNodes
+
+Get nodes sequences if tree path exist.
+
+```ts
+import { findPathNodes } from 'n-ary-tree'
+
+findPathNodes(tree, [1, 11, 111])
+/**
+ * [
+ *   { value: 1, children: ... },
+ *   { value: 11, children: ... },
+ *   { value: 111, children: ...}
+ * ]
+ */
+
+findPathNodes(tree, [1, 9])
+/**
+ * [
+ *   { value: 1, children: ... }
+ * ]
+ */
 ```
 
 ### Traversal
