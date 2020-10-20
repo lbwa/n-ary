@@ -58,7 +58,7 @@ describe('find* methods', () => {
           value: 1,
           children: new Array(99).fill(undefined).concat({
             value: 12,
-            children: new Array(999)
+            children: new Array(99)
               .fill(undefined)
               .concat({ value: 19 })
               .concat(new Array(99).fill(null))
@@ -136,7 +136,12 @@ describe('find* methods', () => {
           label: 'label11',
           descendants: [
             {
-              label: 'label111'
+              label: 'label111',
+              descendants: [
+                {
+                  label: 'label1111'
+                }
+              ]
             }
           ]
         }
@@ -144,6 +149,18 @@ describe('find* methods', () => {
     }
     expect(
       findPathNodes(tree, ['label11'], {
+        value: 'label',
+        children: 'descendants'
+      })
+    ).toEqual([])
+    expect(
+      findPathNodes(undefined as any, [], {
+        value: 'label',
+        children: 'descendants'
+      })
+    ).toEqual([])
+    expect(
+      findPathNodes(tree, [], {
         value: 'label',
         children: 'descendants'
       })
