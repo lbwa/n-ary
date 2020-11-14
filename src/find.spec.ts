@@ -1,5 +1,5 @@
 import { findNodes } from '.'
-import { findPathNodes } from './find'
+import { findAllPaths, findPath, findPathNodes } from './find'
 
 interface DefaultTreeNode {
   value: number
@@ -177,5 +177,104 @@ describe('find* methods', () => {
         children: 'descendants'
       })
     ).toEqual([tree])
+  })
+
+  it('should find last matched path when we have only one target node', () => {
+    const tree = {
+      label: 'label1',
+      descendants: [
+        {
+          label: 'label11',
+          descendants: [
+            {
+              label: 'label1111' // duplicated
+            },
+            {
+              label: 'label111',
+              descendants: [
+                {
+                  label: 'label1111' // duplicated
+                },
+                {
+                  label: 'label1112'
+                }
+              ]
+            },
+            {
+              label: 'label112'
+            }
+          ]
+        }
+      ]
+    }
+    expect(
+      findPath(tree, 'label2', { value: 'label', children: 'descendants' })
+    ).toEqual([])
+    expect(
+      findPath(tree, 'label111', { value: 'label', children: 'descendants' })
+    ).toEqual([tree, tree.descendants[0], tree.descendants[0].descendants[1]])
+    expect(
+      findPath(tree, 'label112', { value: 'label', children: 'descendants' })
+    ).toEqual([tree, tree.descendants[0], tree.descendants[0].descendants[2]])
+    expect(
+      findPath(tree, 'label1112', { value: 'label', children: 'descendants' })
+    ).toEqual([
+      tree,
+      tree.descendants[0],
+      tree.descendants[0].descendants[1],
+      tree.descendants[0].descendants![1].descendants![1]
+    ])
+    expect(
+      findPath(tree, 'label1111', { value: 'label', children: 'descendants' })
+    ).toEqual([
+      tree,
+      tree.descendants[0],
+      tree.descendants[0].descendants[1],
+      tree.descendants[0].descendants![1].descendants![0]
+    ])
+  })
+
+  it('should find all matched path when we have only one target node', () => {
+    const tree = {
+      label: 'label1',
+      descendants: [
+        {
+          label: 'label11',
+          descendants: [
+            {
+              label: 'label1111' // duplicated
+            },
+            {
+              label: 'label111',
+              descendants: [
+                {
+                  label: 'label1111' // duplicated
+                },
+                {
+                  label: 'label1112'
+                }
+              ]
+            },
+            {
+              label: 'label112'
+            }
+          ]
+        }
+      ]
+    }
+    expect(
+      findAllPaths(tree, 'label1111', {
+        value: 'label',
+        children: 'descendants'
+      })
+    ).toEqual([
+      [tree, tree.descendants[0], tree.descendants[0].descendants[0]],
+      [
+        tree,
+        tree.descendants[0],
+        tree.descendants[0].descendants[1],
+        tree.descendants[0].descendants![1].descendants![0]
+      ]
+    ])
   })
 })

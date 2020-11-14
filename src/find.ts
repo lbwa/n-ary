@@ -77,3 +77,55 @@ export function findPathNodes<N extends TreeNode<V>, V = any>(
   }
   return nodes
 }
+
+function createPathFinder<
+  N extends TreeNode<V>,
+  R extends N[] | N[][],
+  V = any
+>(callback: (track: N[], answer?: R) => R) {
+  return function pathFinder(
+    root: N,
+    target: V,
+    { value = 'value', children = 'children' }: TreeNodeFields<N> = {}
+  ): R {
+    const track: N[] = []
+    let answer: R = ([] as unknown) as R
+    function backtracking(root: N | undefined | null) {
+      if (!root) {
+        return
+      }
+      track.push(root)
+      if (root[value] === target) {
+        answer = callback(track, answer)
+      }
+      if (Array.isArray(root[children])) {
+        root[children].forEach(backtracking)
+      }
+      track.pop()
+    }
+    backtracking(root)
+    return answer
+  }
+}
+
+export function findPath<N extends TreeNode<V>, V = any>(
+  root: N,
+  target: V,
+  treeNodeFields: TreeNodeFields<N> = {}
+) {
+  return createPathFinder<N, N[], V>(track => [...track])(
+    root,
+    target,
+    treeNodeFields
+  )
+}
+
+export function findAllPaths<N extends TreeNode<V>, V = any>(
+  root: N,
+  target: V,
+  treeNodeFields: TreeNodeFields<N> = {}
+) {
+  return createPathFinder<N, N[][], V>((track, answer) =>
+    answer!.concat([[...track]])
+  )(root, target, treeNodeFields)
+}
