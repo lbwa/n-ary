@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.0](https://github.com/lbwa/n-ary/compare/v0.3.0...v0.4.0) (2020-11-14)
+
+
+### Features
+
+* **find:** find all/last path(s) with a specific value ([62f6e05](https://github.com/lbwa/n-ary/commit/62f6e058b39fa6712f74f97c7bcba39ee4a95539))
+
+
+### Bug Fixes
+
+* ignore undefined, null type value ([f7cd6d4](https://github.com/lbwa/n-ary/commit/f7cd6d445c283cabe40d6c2da6bf439e35598eef))
+
 ## [0.3.0](https://github.com/lbwa/n-ary/compare/v0.2.2...v0.3.0) (2020-10-20)
 
 
