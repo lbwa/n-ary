@@ -156,7 +156,7 @@ Find the latest matched path.
 ```ts
 import { findPath } from 'n-ary-tree'
 
-findPath(tree, [121])
+findPath(tree, 121)
 /**
  * [
  *   { value: 1, children: ... },
@@ -164,7 +164,7 @@ findPath(tree, [121])
  *   { value: 121, children: ...}
  * ]
  */
-findPath(tree, [22]) // []
+findPath(tree, 22) // []
 ```
 
 ### findAllPaths
