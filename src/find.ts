@@ -1,4 +1,5 @@
 import { TreeNode, TreeNodeFields } from './types'
+import { isDef } from 'tslang-utils'
 
 export type FindNodesResult<N extends TreeNode<V>, V> = {
   nodes: N[]
@@ -95,7 +96,7 @@ function createPathFinder<
         return
       }
       track.push(root)
-      if (root[value] === target) {
+      if (isDef(root[value]) && root[value] === target) {
         answer = callback(track, answer)
       }
       if (Array.isArray(root[children])) {
