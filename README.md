@@ -14,6 +14,8 @@
   - [APIs](#apis)
     - [findNodes](#findnodes)
     - [findPathNodes](#findpathnodes)
+    - [findPath](#findpath)
+    - [findAllPaths](#findallpaths)
     - [Traversal](#traversal)
       - [levelorder](#levelorder)
       - [preorder](#preorder)
@@ -143,6 +145,72 @@ findPathNodes(tree, [1, 9])
 /**
  * [
  *   { value: 1, children: ... }
+ * ]
+ */
+```
+
+### findPath
+
+Find the latest matched path.
+
+```ts
+import { findPath } from 'n-ary-tree'
+
+findPath(tree, [121])
+/**
+ * [
+ *   { value: 1, children: ... },
+ *   { value: 12, children: ... },
+ *   { value: 121, children: ...}
+ * ]
+ */
+findPath(tree, [22]) // []
+```
+
+### findAllPaths
+
+Find all matched paths.
+
+```ts
+import { findAllPaths } from 'n-ary-tree'
+
+const tree = {
+  value: 1,
+  children: [
+    {
+      value: 111
+    },
+    {
+      value: 11,
+      children: [
+        {
+          value: 111
+        }
+      ]
+    },
+    {
+      value: 12,
+      children: [
+        {
+          value: 121
+        }
+      ]
+    }
+  ]
+}
+
+findAllPaths(tree, [111])
+/**
+ * [
+ *    [
+ *      { value: 1, children: ... },
+ *      { value: 111, children: ... },
+ *    ],
+ *    [
+ *      { value: 1, children: ... },
+ *      { value: 11, children: ... },
+ *      { value: 111, children: ...}
+ *    ]
  * ]
  */
 ```
