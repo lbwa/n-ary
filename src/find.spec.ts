@@ -171,7 +171,7 @@ describe('find* methods', () => {
       })
     ).toEqual([tree, tree.descendants![0]])
     expect(
-      findPathNodes(tree, ['label1', , 'label112'], {
+      findPathNodes(tree, ['label1', 'label112'], {
         value: 'label',
         children: 'descendants'
       })
