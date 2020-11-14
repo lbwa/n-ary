@@ -1,5 +1,4 @@
-import { findNodes } from '.'
-import { findAllPaths, findPath, findPathNodes } from './find'
+import { findNodes, findPathNodes, findAllPaths, findPath } from '.'
 
 interface DefaultTreeNode {
   value: number
